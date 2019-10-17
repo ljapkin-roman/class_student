@@ -1,0 +1,17 @@
+{
+    "name": "roma/task_students",
+    "description": "For creation simple CRUD kind of class of students",
+    "authors": [
+        {
+            "name": "Roma",
+            "email": "silvervaza@gmail.com"
+        }
+    ],
+    "require": {},
+    
+   "autoload": {
+       "psr-4": {
+          "App\\": "App/"
+       }
+   }
+}
