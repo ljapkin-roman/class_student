@@ -9,4 +9,9 @@ class Contr_register extends Controller
     {
         $this->view->generate('register.php', 'Someurl.php');
     }    
+
+    function action_create()
+    {
+        print_r($_POST);
+    }
 }
