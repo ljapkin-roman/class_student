@@ -1,9 +1,11 @@
 <h3> Form for registr </h3>
 <?php  
+    session_start();
     if (!empty($data['errors'])) {
         $errors = $data['errors'];
         $data = $data['data'];
     }
+    print_r($_COOKIE);
 ?>
 <form action="/register/create" method="post">
     <p>

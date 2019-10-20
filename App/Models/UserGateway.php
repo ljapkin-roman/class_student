@@ -3,7 +3,7 @@ namespace App\Models;
 
 use App\Core\Model as Model;
 
-class Model_register extends Model
+class UserGateway extends Model
 {
 
     public function recordUser($data) 

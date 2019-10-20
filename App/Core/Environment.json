@@ -1,0 +1,10 @@
+{
+    "db":
+    {
+        "host": "localhost",
+        "user": "roma",
+        "password": "longPassword",
+        "dbname": "class_student",
+        "charset": "utf8"
+    }
+}

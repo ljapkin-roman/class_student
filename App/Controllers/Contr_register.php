@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 use App\Core\Controller as Controller;
 use App\Validators\Validator_student as Validator_student;
-use App\Models\Model_register as Model_register;
+use App\Models\UserGateway as UserGateway;
 
 class Contr_register extends Controller
 {
@@ -19,8 +19,10 @@ class Contr_register extends Controller
         if (!empty($result['errors'])) {
             $this->action_index($result);
         } else {
-            $db = new Model_register();
+            $db = new UserGateway();
             $db->recordUser($result['data']);
+            session_start();
+            setcookie('user_email', $result['data']['email'], time()+60*60*24*30, '/');
         }
     }
 
