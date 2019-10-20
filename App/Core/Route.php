@@ -14,13 +14,16 @@ class Route
         }
         return $result;
     }
+
     static function start()
     {
         $url = parse_url($_SERVER['REQUEST_URI']);
         $routes = explode('/', $url['path']);
-        $query = self::getParam($url['query']);
 
-        print_r($query);
+        if (isset($url['query'])) {
+            $query = self::getParam($url['query']);
+        }
+
 
         if (!empty($routes[1]))
         {
@@ -41,7 +44,7 @@ class Route
         $controller = new $controller_name ();
         $action = $action_name;
 
-        $controller->$action();
+        $controller->$action($query);
 
     }
 }

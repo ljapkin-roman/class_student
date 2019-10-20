@@ -7,7 +7,7 @@ use App\Models\UserGateway as UserGateway;
 
 class Contr_register extends Controller
 {
-    function action_index($data = null)
+    function action_index($data = null, $query = null)
     {
         $this->view->generate('register.php', 'Someurl.php', $data);
     }    
