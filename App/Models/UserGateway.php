@@ -22,4 +22,11 @@ class UserGateway extends Model
 
         ));
     }
+
+    public function getAllUser()
+    {
+        $sql = 'SELECT first_name, last_name, number_group, sex, email, score_ege, birthday, citizen FROM student';
+        $allUser = $this->db->query($sql); 
+        return $allUser;
+    }
 }

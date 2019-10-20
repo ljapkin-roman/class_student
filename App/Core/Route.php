@@ -4,9 +4,23 @@ use App\Controllers;
 
 class Route
 {
+    private static function getParam($query)
+    {
+        $parts = explode('&', $query);
+        $result = [];
+        foreach ($parts as $item) {
+            $chunk = explode('=', $item);
+            $result[$chunk['0']] = $chunk[1];
+        }
+        return $result;
+    }
     static function start()
     {
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
+        $url = parse_url($_SERVER['REQUEST_URI']);
+        $routes = explode('/', $url['path']);
+        $query = self::getParam($url['query']);
+
+        print_r($query);
 
         if (!empty($routes[1]))
         {
@@ -23,8 +37,6 @@ class Route
         $controller_name ='App\\Controllers\\' . 'Contr_'.$controller_name;
         $action_name = 'action_'.$action_name;
 
-        print_r($controller_name);
-        print_r($action_name);
 
         $controller = new $controller_name ();
         $action = $action_name;
